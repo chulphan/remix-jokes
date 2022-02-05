@@ -1,5 +1,5 @@
 import {
-  LiveReload,
+  LiveReload, Outlet,
 } from "remix";
 import type { MetaFunction } from "remix";
 
@@ -16,7 +16,7 @@ export default function App() {
         <title>Remix: So great, it's funny!</title>
       </head>
       <body>
-        Hello world
+        <Outlet />
         {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
