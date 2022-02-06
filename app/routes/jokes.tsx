@@ -37,7 +37,6 @@ export const loader: LoaderFunction = async () => {
 // /jokes 로 통하는 라우팅의 부모 라우팅이 된다는 듯
 export default function JokesRoute() {
   const data = useLoaderData<LoaderData>();
-  console.log('data ', data);
   
   return (
     <div className="jokes-layout">
