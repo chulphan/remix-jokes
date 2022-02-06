@@ -1,4 +1,4 @@
-import type {LinksFunction} from 'remix';
+import type { LinksFunction } from 'remix';
 import {
   LiveReload, Outlet, Links
 } from "remix";

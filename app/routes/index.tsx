@@ -1,4 +1,4 @@
-import type {LinksFunction} from 'remix';
+import type { LinksFunction } from 'remix';
 import stylesUrl from '../styles/index.css';
 import { Link } from 'remix';
 
