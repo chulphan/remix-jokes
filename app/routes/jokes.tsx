@@ -12,13 +12,23 @@ export const links: LinksFunction = () => {
   ]
 }
 
+type JokesSelect = {
+  id: boolean;
+  name: boolean;
+}
+
 type LoaderData = {
   jokeListItems: Array<{ id: string; name: string }>;
 }
 
 export const loader: LoaderFunction = async () => {
+  const select: JokesSelect = {id: true, name: true}
   const data: LoaderData = {
-    jokeListItems: await db.joke.findMany()
+    jokeListItems: await db.joke.findMany({
+      take: 5,
+      select,
+      orderBy: { createdAt: 'desc' }
+    })
   };
 
   return data;
@@ -27,6 +37,7 @@ export const loader: LoaderFunction = async () => {
 // /jokes 로 통하는 라우팅의 부모 라우팅이 된다는 듯
 export default function JokesRoute() {
   const data = useLoaderData<LoaderData>();
+  console.log('data ', data);
   
   return (
     <div className="jokes-layout">
